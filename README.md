@@ -1,6 +1,7 @@
 Introduction:
 
 An example of thread-safe double-buffering implemented in C++
+
 一个C++实现的线程安全的双缓冲实例
 
 scenario: a multithreaded business system writes data to memory, while a synchronous thread reads data and synchronizes to redis.
