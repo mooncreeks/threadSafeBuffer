@@ -12,10 +12,8 @@ Dsigning scheme：
 For the business is well suited to the map structure, a two-layer map is adopted.
 由于业务非常适合map的结构，因此采用了双层map
 
-`
-    typedef std::map<int,int> EventCountMap;
-    typedef std::map<int,EventCountMap> RuleEventCountMap;
-`
+    `typedef std::map<int,int> EventCountMap;`
+    `typedef std::map<int,EventCountMap> RuleEventCountMap;`
 
 In order to achieve read/write separation, double buffering, one reading and one writing are adopted. 
 Since std::map is not thread safe, it needs to be locked when reading and writing.
