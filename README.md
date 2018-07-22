@@ -41,13 +41,13 @@ Since std::map is not thread safe, it needs to be locked when reading and writin
         RuleEventCountMap *buffer_map_consumer_ptr;	
     };
 
-init（） is used to initialize the double buffer
+init() is used to initialize the double buffer
 
 init用于初始化双缓冲
 
-get() returns the consumer's pointer,
+get() exchange the buffer_map_producer_ptr and buffer_map_consumer_ptr,then return RuleEventCountMap *
 
-get返回消费者的指针
+get() 交换缓冲区的指针并返回
 
 set(int key, int field_key, int field_value) is used for producer insert data
 
