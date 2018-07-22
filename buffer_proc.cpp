@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "buffer_proc.h"
 
+using namespace SYS;
 BufferProc::BufferProc()
 {
     buffer_map_A_ptr = NULL;
