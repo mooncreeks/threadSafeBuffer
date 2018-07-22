@@ -24,21 +24,21 @@ Since std::map is not thread safe, it needs to be locked when reading and writin
 
 为了实现读写分离，采用双缓冲，一个读，一个写，由于std::map并不是线程安全的，所以读写的时候需要加锁处理。
 
-    class AlarmProc
+    class BufferProc
     {
     public:
-        AlarmProc();
-        ~AlarmProc();
+        BufferProc();
+        ~BufferProc();
         int init();
         RuleEventCountMap * get();
         int set(int key, int field_key, int field_value);
         void clear();
     private:
-        MutexLock alarm_map_mutex;
-        RuleEventCountMap *alarm_map_A_ptr;
-        RuleEventCountMap *alarm_map_B_ptr;
-        RuleEventCountMap *alarm_map_producer_ptr;
-        RuleEventCountMap *alarm_map_consumer_ptr;	
+        MutexLock buffer_map_mutex;
+        RuleEventCountMap *buffer_map_A_ptr;
+        RuleEventCountMap *buffer_map_B_ptr;
+        RuleEventCountMap *buffer_map_producer_ptr;
+        RuleEventCountMap *buffer_map_consumer_ptr;	
     };
 
 init（） is used to initialize the double buffer
